@@ -1,9 +1,11 @@
-﻿var DataSource = function (config) {
+/*global $ */
+
+var DataSource = function (config) {
     var _deferred = function () {};
     var _items = new Array();
     
     if (typeof config === 'object') {
-        for (key in config) {
+        for (var key in config) {
             this[key] = config[key];
         }
     } else if (typeof config === 'string' || typeof config === 'function') {
@@ -48,7 +50,7 @@
     };
 
     this.execute = function () {
-        return typeof _deferred !== 'undefined' && _items.length == 0
+        return typeof _deferred !== 'undefined' && _items.length === 0
             ? _deferred.call(this)
             : _items;
     };
