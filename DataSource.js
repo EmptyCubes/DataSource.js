@@ -1,3 +1,4 @@
+/* jshint es3:true, immed:true, indent:4, noempty:true, undef:true, unused:true */
 /*global $ */
 
 var DataSource = function (config) {
