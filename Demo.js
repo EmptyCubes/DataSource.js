@@ -20,7 +20,7 @@
 
         output.append('<b>Where & OrderByDesc</b>');
         output.append("<br />");
-        $.each(query.toArray(), function(i, o) {
+        query.forEach(function(o) {
             output.append("Id = " + o.Id + ", Name = " + o.Name);
             output.append("<br />");
         });
@@ -73,7 +73,7 @@
         output.append("<br />");
         output.append('<b>Skip & Take</b>');
         output.append("<br />");
-        $.each(query.toArray(), function(i, o) {
+        query.forEach(function(o) {
             output.append("Id = " + o.Id + ", Name = " + o.Name);
             output.append("<br />");
         });
@@ -110,7 +110,7 @@
         output.append("<br />");
         output.append('<b>Select</b>');
         output.append("<br />");
-        $.each(query.toArray(), function(i, o) {
+        query.forEach(function(o) {
             output.append(o.join());
             output.append("<br />");
         });
@@ -125,7 +125,7 @@
         output.append("<br />");
         output.append('<b>Select Many</b>');
         output.append("<br />");
-        $.each(query.toArray(), function(i, o) {
+        query.forEach(function(o) {
             output.append(o);
             output.append("<br />");
         });
@@ -140,26 +140,11 @@
         output.append("<br />");
         output.append('<b>Union</b>');
         output.append("<br />");
-        $.each(query.toArray(), function(i, o) {
+        query.forEach(function(o) {
             output.append("Id = " + o.Id + ", Name = " + o.Name);
             output.append("<br />");
         });
         output.append("<br />");
-
-        //
-        //Reverse
-        //
-
-        //query = source.reverse();
-
-        //output.append("<br />");
-        //output.append('<b>Reverse</b>');
-        //output.append("<br />");
-        //$.each(query.toArray(), function (i, o) {
-        //    output.append("Id = " + o.Id + ", Name = " + o.Name);
-        //    output.append("<br />");
-        //});
-        //output.append("<br />");
 
         //
         //Max
@@ -194,7 +179,7 @@
         output.append("<br />");
         output.append('<b>Distinct</b>');
         output.append("<br />");
-        $.each(query.toArray(), function(i, o) {
+        query.forEach(function(o) {
             output.append("Id = " + o.Id + ", Name = " + o.Name);
             output.append("<br />");
         });
@@ -211,7 +196,7 @@
         output.append("<br />");
         output.append('<b>Zip</b>');
         output.append("<br />");
-        $.each(numbersAndWords, function(i, o) {
+        numbersAndWords.forEach(function(o) {
             output.append(o);
             output.append("<br />");
         });
@@ -225,7 +210,7 @@
         output.append("<br />");
         output.append('<b>InnerJoin</b>');
         output.append("<br />");
-        $.each(joined.toArray(), function(i, o) {
+        joined.forEach(function(o) {
             output.append(o);
             output.append("<br />");
         });
