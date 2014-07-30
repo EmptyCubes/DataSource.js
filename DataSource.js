@@ -5,7 +5,12 @@ var DataSource = function (config) {
     var _deferred = function () {};
     var _items = new Array();
 
-    if (typeof config === 'object') {
+    if (config.splice) {
+        _items = config;
+        config = null;
+    }
+
+    if (typeof config === 'object' && config !== null) {
         for (var key in config) {
             this[key] = config[key];
         }
@@ -69,6 +74,8 @@ var DataSource = function (config) {
             $.extend(ajaxOptions, { url: this.source });
         }
 
+        var retry = 0;
+
         this.source = function () {
             var dataSource = this;
             $.ajax(ajaxOptions)
@@ -81,7 +88,7 @@ var DataSource = function (config) {
                         throw "Unknown data type";
                     }
                 });
-
+            if (++retry > 3) throw new Error("Unable to fetch data source");
             return dataSource.execute();
         };
     }
